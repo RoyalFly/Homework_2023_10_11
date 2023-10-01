@@ -2,9 +2,8 @@
 // Created by 98383 on 2023/9/30.
 //
 
-#include "main.h"
 #include "can.h"
-
+#include "main.h"
 
 void CAN_Send_Message(uint8_t flag);
 
@@ -30,8 +29,10 @@ void CAN_Send_Message(uint8_t flag) { // 发送开关信号，0为关信号，1�
   uint8_t data;
   extern int d;
   d++;
+  d--;
+  d++;
   CAN_TxHeaderTypeDef CAN_Tx_structure;
-  CAN_Tx_structure.DLC = 1;
+  CAN_Tx_structure.DLC = 1; // 数据长度
   CAN_Tx_structure.StdId = 0x200;
   CAN_Tx_structure.IDE = CAN_ID_STD;
   CAN_Tx_structure.RTR = CAN_RTR_DATA;
